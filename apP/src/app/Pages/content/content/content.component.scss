@@ -1,0 +1,270 @@
+
+.ShowData {
+    background-color: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+  .el3omla{
+  background-color:  #fff;
+  border-radius: 10px;
+  }
+  
+  .inputSearch {
+    padding: 6px 14px;
+    width: 200px;
+    background-color: transparent;
+    border: 0.5px solid #97979797;
+    outline: none;
+    border-radius: 10px;
+  
+  }
+  .btn {
+    color: #fff;
+    border-radius: 10px;
+  
+  }
+  .btnsearch {
+    background-color: #b88e2f;
+
+    color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .btnDelete {
+ 
+    background-color:transparent;
+    color: #ff1e00ad;
+    border:1px solid #ff1e00ad;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .btnDelete:hover {
+    background-color:#ff1e00ad;
+    color: #fff;
+    border:1px solid #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .btnDelete {
+ 
+    background-color:transparent;
+    color: #ff1e00ad;
+    border:1px solid #ff1e00ad;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .btnDelete:hover {
+    background-color:#ff1e00ad;
+    color: #fff;
+    border:1px solid #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+
+  .btnEdit {
+ 
+    background-color:transparent;
+    color: #319F43;
+    border:1px solid #319F43;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .btnEdit:hover {
+    background-color:#319F43;
+    color: #fff;
+    border:1px solid #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  
+ 
+  .table th, .table td {
+    text-align: center;
+
+    border: none !important;
+  
+  }
+ 
+  .table th {
+    font-weight: bold;
+    background-color: #f8f9fa;
+     gap: 20px;
+     column-span: none;
+    margin-left: 10px;
+    border-radius: 10px;
+  }
+  .table  tr {
+    border-radius: 25px;
+     margin: 10px;
+  
+  
+  }
+  
+  .CardWish {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .widsh {
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 30%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .widsh span {
+    color: #000000b2;
+    font-weight: 900;
+  }
+  .widsh h5 {
+    font-weight: 700;
+    text-align: center;
+  }
+  .iconWidsh {
+    background-color: #ff09e6;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .people {
+    background-color: #0029ff;
+  }
+  .orders {
+    background-color: #21c3cd;
+  }
+  .numberProduct {
+    background-color: #ff7f09;
+  }
+  .iconWidsh i {
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  .ShowData {
+    background-color: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+  
+  .inputSearch {
+    padding: 6px 14px;
+    width: 200px;
+    background-color: transparent;
+    border: 0.5px solid #97979797;
+    outline: none;
+    border-radius: 10px;
+  }
+  .btn {
+    background-color: #b88e2f;
+    color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 15px;
+    
+    border: none !important;
+  
+  }
+  
+  
+  .table th {
+    font-weight: bold;
+    background-color: #f8f9fa;
+     gap: 20px;
+     column-span: none;
+    margin-left: 10px;
+    border-radius: 10px;
+  }
+  .table  tr {
+    border-radius: 25px;
+     margin: 10px;
+  
+  
+  }
+  .BtnPagination {
+    margin: 0 5px;
+  }
+  
+  .current-page {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .NumpageActive {
+    font-weight: bold;
+    background-color:#9f7a24;
+    width: 30px; height: 28px;
+    text-align: center;
+    margin-top: 20px;
+    border-color: rgb(227, 203, 158);
+     border-radius: 10px;
+  }
+  
+  .NumpageNotActive {
+    color: whitesmoke;
+    background-color:#9f7a24;
+    width: 30px; height: 28px;
+    text-align: center;
+    margin-top: 20px;
+    border-color: rgb(227, 203, 158);
+     border-radius: 10px;
+  }
+  
+  .limit-selection {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .limit-selection label {
+    margin-right: 10px;
+  }
+  .dropdown{
+    background-color:#9f7a24;
+    border-radius: 15px;
+    padding: 10px;
+  height: 46px;
+  }
+  .changeselct{
+
+    background-color:#9f7a24;
+     padding: 4px ; 
+     border-color: rgb(227, 203, 158);
+      border-radius: 10px;
+  }
+
+  .loader {
+    margin-top:30px;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color:#b88e2f;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 

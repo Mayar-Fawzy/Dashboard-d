@@ -1,0 +1,167 @@
+body{
+  margin: 0; 
+  overflow: hidden !important; 
+ overflow-x: hidden !important;
+
+}
+
+.DataScroll {
+ width: 100%;
+  max-width:100%;
+  overflow-x: auto; 
+  scroll-behavior:smooth;
+      
+}
+.DataScroll {
+  scroll-margin: 10px;
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #9f7a24 #f1f1f1; /* Thumb color, Track color */
+}
+.DataScroll::-webkit-scrollbar {
+  width: 1px;
+  height: 5px; /* Scrollbar width */
+}
+
+.DataScroll::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color of the track */
+  border-radius: 5px; /* Rounded edges */
+}
+
+.DataScroll::-webkit-scrollbar-thumb {
+  background:#9f7a24; /* Scrollbar color */
+  border-radius: 5px; /* Rounded edges */
+}
+
+.DataScroll::-webkit-scrollbar-thumb:hover {
+  background:rgba(159, 122, 36,.5);
+}
+.table{
+    text-align: center;
+    border: transparent !important;
+    width: 1520px;
+   th{
+    
+    font-weight: bold;
+     gap: 20px;
+     column-span: none;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #f2f3f3;
+   
+ 
+}
+tr {
+      padding: 120px;
+     margin: 110px;
+  
+  } 
+}
+// .OrderTable{
+//     background-color: rebeccapurple;
+    
+//     scroll-behavior:smooth;
+//     overflow: hidden;
+//     scroll-margin-inline-start: 10px;
+//     scrollbar-base-color: #9f7a24;
+// }
+//  .......................................
+
+.Data {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .Data::-webkit-scrollbar {
+    height: 8px;
+
+  }
+  
+  .Data::-webkit-scrollbar-thumb {
+    background-color: #b88f2fae; 
+    border-radius: 10px;
+  }
+  
+  .Data::-webkit-scrollbar-thumb:hover {
+    background-color: #b88e2f;
+  }
+  
+  .Data::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+  }
+
+  .BtnPagination {
+    margin: 0 5px;
+  }
+  
+  .current-page {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .NumpageActive {
+    font-weight: bold;
+    background-color:#9f7a24;
+    width: 30px; height: 28px;
+    text-align: center;
+    margin-top: 20px;
+    border-color: rgb(227, 203, 158);
+     border-radius: 10px;
+  }
+  
+  .NumpageNotActive {
+    color: whitesmoke;
+    background-color:#9f7a24;
+    width: 30px; height: 28px;
+    text-align: center;
+    margin-top: 20px;
+    border-color: rgb(227, 203, 158);
+     border-radius: 10px;
+  }
+  
+  .limit-selection {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .limit-selection label {
+    margin-right: 10px;
+  }
+  .dropdown{
+    background-color:#9f7a24;
+    border-radius: 15px;
+    padding: 10px;
+  height: 46px;
+  }
+  .changeselct{
+
+    background-color:#9f7a24;
+     padding: 4px ; 
+     border-color: rgb(227, 203, 158);
+      border-radius: 10px;
+  }
+  .btn {
+    background-color: #b88e2f;
+    color: #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  .loader {
+    margin-top:30px;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color:#b88e2f;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 

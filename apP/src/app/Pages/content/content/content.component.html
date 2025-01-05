@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  <div class="CardWish">
+    <div class="widsh">
+      <div class="infoWidsh">
+        <h5>الاجمالي</h5>
+        <span>{{ totalUserss }} ر س </span>
+      </div>
+
+      <div class="iconWidsh">
+        <i class="fa-solid fa-money-bill"></i>
+      </div>
+    </div>
+
+    <div class="widsh">
+      <div class="infoWidsh">
+        <h5>المستخدمين</h5>
+        <span>{{ totalUserss }}</span>
+      </div>
+
+      <div class="iconWidsh people">
+        <i class="fa-solid fa-person"></i>
+      </div>
+    </div>
+
+    <div class="widsh">
+      <div class="infoWidsh">
+        <h5>الطلبات</h5>
+        <span>{{ totalUserss }}</span>
+      </div>
+
+      <div class="iconWidsh orders">
+        <i class="fa-solid fa-box"></i>
+      </div>
+    </div>
+
+    <div class="widsh">
+      <div class="infoWidsh">
+        <h5>عدد المنتجات</h5>
+        <span>{{ totalUserss }}</span>
+      </div>
+
+      <div class="iconWidsh numberProduct">
+        <i class="fa-solid fa-table-columns"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between p-3 el3omla mt-5">
+    <h2>العملاء</h2>
+    <form>
+      <input
+        type="text"
+        [(ngModel)]="searchInput"
+        name="searchInput"
+        id=""
+        placeholder="ابحث"
+        style="border-radius: 20px; border: 1px solid #b88e2f; padding: 10px"
+        (keyup)="search()"
+      />
+    </form>
+  </div>
+  @if(loading==false){
+    <div class=" text-center">
+      <div class="loader"></div>
+  </div>
+  }
+ 
+  <div class="Data" *ngIf="resultUser.length > 0">
+    <table class="table w-100 text-center">
+      <thead >
+        <tr >
+          <th>الرقم</th>
+          <th>اسم المستخدم</th>
+          <th>البريد الاكتروني</th>
+          <th>تاريخ انشاء الحساب</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of resultUser; let i = index">
+          <td class="px-3 font-bolder">{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.createdAt | date : "yyyy-MM-dd" }}</td>
+
+          <td>
+            <!-- <button class="btn  btnDelete " (click)="onDelete(product.id)">حذف <i class="bi bi-trash3 me-1"></i>
+              </button>
+              <button class="btn btnEdit" (click)="onEdit(product)">تعديل <i class="bi bi-pencil-square"></i></button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex  pagination-controls">
+        <button
+          [disabled]="count < 2"
+          class="btn  m-3"
+          (click)="navigateToPreviosPage()"
+        >
+          السابق
+        </button>
+          
+          <span class="current-page NumpageActive">{{ count }}</span>
+          <span class="current-page NumpageActive NumpageNotActive"
+              *ngIf="count < numberOfPages" (click)="goToPage(count + 1)">
+              {{ count + 1 }}
+          </span>
+          <span class="current-page NumpageActive NumpageNotActive"
+              *ngIf="count < numberOfPages - 1" (click)="goToPage(count + 2)">
+              {{ count + 2 }}
+          </span>
+    
+        <button class="btn m-3" (click)="navigateToAnotherPage()">
+          التالي
+        </button>
+      </div>
+
+      <div class="dropdown">
+        <label for="numberr"> العناصر في الصفحه</label>
+        <select
+          id="numberr"
+          class="changeselct"
+          (change)="numberChange($event)"
+        >
+          <option value="10">10</option>
+          <option *ngFor="let numberr of numbers" [value]="numberr">
+            {{ numberr }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

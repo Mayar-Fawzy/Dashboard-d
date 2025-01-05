@@ -1,0 +1,47 @@
+.nav-link{
+    display: flex;
+   i{
+    margin:5px 0px 0px 10px;
+   }
+  
+
+   text-decoration: none;
+   color:rgba(33, 37, 41, .5);
+   
+}
+.showOrhide{
+    margin-right: 35px;
+  
+}
+// .motgat{
+//     transition: transform ease-in 2s 2s;
+    
+    
+// }
+// .motgat:hover{
+//     transform: translateY(100px) scale(1.1);
+// }
+.option{  
+    transition: transform ease-in 1s 2s;
+    margin-top: 20px;
+    :hover{
+        transform: translate(-4px) scale(1.1);
+        color:#9f7a24;
+        margin: 2px;
+       }
+}
+.active-link{
+    color:#9f7a24;
+}
+.optionLog{
+    transition: transform ease-in 1s 2s;
+    margin-top: 10px;
+    :hover{
+        transform: translate(-4px) scale(1.1);
+        color:red;
+        margin: 2px;
+       }
+}
+.Log{
+    color: red;
+}
