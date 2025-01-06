@@ -34,6 +34,14 @@ logout():void{
   GetAllOrders(page:number, limit:number):Observable<any>{
     return this._HttpClient.get(`${environment.baseUrl}${environment.Orders}?limit=${limit}&page=${page}`)
   }
+  
+  getProducts(): Observable<any> {
+    return this._HttpClient.get(environment.UrlProduct);
+  }
+  DeleteProduct(id:string):Observable<any>{
+    return this._HttpClient.delete(`${environment.UrlProduct}/${id}`);
+   
+  }
   Search(searchinput:string,page:number=1, limit:number=10):Observable<any>{
     return this._HttpClient.get(`${environment.baseUrl}${environment.UserRout}?name=${searchinput}`)
   }

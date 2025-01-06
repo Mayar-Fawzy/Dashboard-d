@@ -13,8 +13,11 @@ import { FormsModule } from '@angular/forms';
 export class ContentComponent {
   private readonly _AuthServies=inject(AuthService)
   loading:boolean=false;
-  searchInput:string=''
+  All:number= Math.floor(Math.random()*100000);
+  searchInput:string='';
+  Product: number = 0;
    resultUser:any=[]
+   orders: number = 0;
    count:number=1;
    totalUserss:Number=0
    numberOfPages = 0;
@@ -22,7 +25,9 @@ export class ContentComponent {
   numbers = [5, 15, 20, 30, 40];
   currentPage!: number;
       ngOnInit(): void{
-      this.GetAllUser(this.currentPage,this.numberr)
+        this.getOrder(this.currentPage,this.numberr);
+      this.GetAllUser(this.currentPage,this.numberr);
+      this.GetProduct();
 }
 
 
@@ -31,7 +36,16 @@ numberChange(event:any):void{
    this.currentPage=1;
    this.GetAllUser(this.currentPage,this.numberr)
 }
-
+getOrder(page:number,limit:number) {
+  this._AuthServies.GetAllOrders(page,limit).subscribe(users => { 
+    this.orders = users.results;
+  })
+}
+GetProduct(){
+  this._AuthServies.getProducts().subscribe((res)=>{
+    this.Product=res.length;
+  })
+}
 
   GetAllUser(page:number,limit:number){
   

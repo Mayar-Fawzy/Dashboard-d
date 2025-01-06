@@ -3,7 +3,7 @@
     <div class="widsh">
       <div class="infoWidsh">
         <h5>الاجمالي</h5>
-        <span>{{ totalUserss }} ر س </span>
+        <span>{{ All }} ر س </span>
       </div>
 
       <div class="iconWidsh">
@@ -25,7 +25,7 @@
     <div class="widsh">
       <div class="infoWidsh">
         <h5>الطلبات</h5>
-        <span>{{ totalUserss }}</span>
+        <span>{{ orders }}</span>
       </div>
 
       <div class="iconWidsh orders">
@@ -36,7 +36,7 @@
     <div class="widsh">
       <div class="infoWidsh">
         <h5>عدد المنتجات</h5>
-        <span>{{ totalUserss }}</span>
+        <span>{{ Product }}</span>
       </div>
 
       <div class="iconWidsh numberProduct">
@@ -60,15 +60,15 @@
     </form>
   </div>
   @if(loading==false){
-    <div class=" text-center">
-      <div class="loader"></div>
+  <div class="text-center">
+    <div class="loader"></div>
   </div>
   }
- 
+
   <div class="Data" *ngIf="resultUser.length > 0">
     <table class="table w-100 text-center">
-      <thead >
-        <tr >
+      <thead>
+        <tr>
           <th>الرقم</th>
           <th>اسم المستخدم</th>
           <th>البريد الاكتروني</th>
@@ -91,25 +91,31 @@
       </tbody>
     </table>
     <div class="d-flex justify-content-between">
-      <div class="d-flex  pagination-controls">
+      <div class="d-flex pagination-controls">
         <button
           [disabled]="count < 2"
-          class="btn  m-3"
+          class="btn m-3"
           (click)="navigateToPreviosPage()"
         >
           السابق
         </button>
-          
-          <span class="current-page NumpageActive">{{ count }}</span>
-          <span class="current-page NumpageActive NumpageNotActive"
-              *ngIf="count < numberOfPages" (click)="goToPage(count + 1)">
-              {{ count + 1 }}
-          </span>
-          <span class="current-page NumpageActive NumpageNotActive"
-              *ngIf="count < numberOfPages - 1" (click)="goToPage(count + 2)">
-              {{ count + 2 }}
-          </span>
-    
+
+        <span class="current-page NumpageActive">{{ count }}</span>
+        <span
+          class="current-page NumpageActive NumpageNotActive"
+          *ngIf="count < numberOfPages"
+          (click)="goToPage(count + 1)"
+        >
+          {{ count + 1 }}
+        </span>
+        <span
+          class="current-page NumpageActive NumpageNotActive"
+          *ngIf="count < numberOfPages - 1"
+          (click)="goToPage(count + 2)"
+        >
+          {{ count + 2 }}
+        </span>
+
         <button class="btn m-3" (click)="navigateToAnotherPage()">
           التالي
         </button>
