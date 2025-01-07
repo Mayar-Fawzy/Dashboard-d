@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/Services/auth.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,6 +14,7 @@ import { AuthService } from '../../../core/Services/auth.service';
 })
 export class ProductsComponent {
   private readonly _AuthService=inject(AuthService);
+  private _router = inject(Router);
   loading:boolean=false;
   ResultProducts:any=[];
  
@@ -46,6 +49,9 @@ export class ProductsComponent {
      this.GetAllProducts();
      })
    
+  }
+  Edit(product: any){
+    this._router.navigate(['/home/products/edit', product.id])
   }
  numberChange(event:any):void{
    this.numberr=+event.target.value;

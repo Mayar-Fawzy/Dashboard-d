@@ -38,7 +38,7 @@
                   <td>{{Product.Qty}}</td>
                   <td>{{Product.dec}}</td>
                   <td>
-                    <button class="btn btn-info">Edit</button>
+                    <button class="btn btn-info" (click)="Edit(Product)">Edit</button>
                     <button class="btn btn-danger" (click)="DeleteProduct(Product.id)">Delete</button>
                   </td>
                

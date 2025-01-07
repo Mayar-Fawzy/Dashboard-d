@@ -9,6 +9,9 @@ import { OrdersComponent } from './Pages/orders/orders/orders.component';
 import { ProductsComponent } from './Pages/products/products/products.component';
 import { AddproductsComponent } from './Pages/Addproduct/addproducts/addproducts.component';
 import { MessageComponent } from './Pages/Messages/message/message.component';
+import path from 'node:path';
+import { Component } from '@angular/core';
+import { EditProductComponent } from './Pages/Edit-Product/edit-product/edit-product.component';
 
 export const routes: Routes = [
     {path:'' ,redirectTo:'login',pathMatch:'full'},
@@ -21,7 +24,11 @@ export const routes: Routes = [
         {path:'content',component:ContentComponent},
         {path:'orders',component:OrdersComponent},
        
-        {path:'products',component:ProductsComponent},
+        {path:'products',component:ProductsComponent,
+            children: [
+                { path: 'edit', component: EditProductComponent }
+            ]
+        },
         {path:'Addproducts',component:AddproductsComponent},
         {path:'Message', component:MessageComponent},
         {path:'slider',component:SliderComponent},
