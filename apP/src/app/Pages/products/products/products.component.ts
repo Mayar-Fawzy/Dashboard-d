@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/Services/auth.service';
 
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
+  
+// 
   private readonly _AuthService=inject(AuthService);
   private _router = inject(Router);
   loading:boolean=false;
@@ -44,11 +47,31 @@ export class ProductsComponent {
 
   }
   DeleteProduct(id:string){
-     this._AuthService.DeleteProduct(id).subscribe((Res)=>{
-        console.log('DoneDelete');
-     this.GetAllProducts();
-     })
-   
+    
+
+     Swal.fire({
+      title: "هل متاكد من  الحذف ؟",
+      
+      icon: "error",
+      showCancelButton: true,
+      cancelButtonText:"غير متاكد",
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "بألتاكيد"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "تم المسح",
+        
+          icon: "success"
+        });
+        this._AuthService.DeleteProduct(id).subscribe((Res)=>{
+          console.log('DoneDelete');
+       this.GetAllProducts();
+       })
+      }
+    });
+    
   }
   Edit(product: any){
     this._router.navigate(['/home/products/edit', product.id])
