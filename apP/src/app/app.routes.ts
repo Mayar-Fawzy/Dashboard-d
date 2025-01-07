@@ -24,11 +24,9 @@ export const routes: Routes = [
         {path:'content',component:ContentComponent},
         {path:'orders',component:OrdersComponent},
        
-        {path:'products',component:ProductsComponent,
-            children: [
-                { path: 'edit/:id', component: EditProductComponent }
-            ]
-        },
+        {path:'products',component:ProductsComponent},
+        { path: 'products/edit/:id', component: EditProductComponent }
+        ,
         {path:'Addproducts',component:AddproductsComponent},
         {path:'Message', component:MessageComponent},
         {path:'slider',component:SliderComponent},

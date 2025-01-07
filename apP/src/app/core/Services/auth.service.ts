@@ -42,6 +42,9 @@ logout():void{
     return this._HttpClient.delete(`${environment.UrlProduct}/${id}`);
    
   }
+  EditProductById(id:string):Observable<any>{
+    return this._HttpClient.get(`${environment.UrlProduct}/${id}`);
+  }
   Search(searchinput:string,page:number=1, limit:number=10):Observable<any>{
     return this._HttpClient.get(`${environment.baseUrl}${environment.UserRout}?name=${searchinput}`)
   }

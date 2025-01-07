@@ -32,13 +32,13 @@
               <tr *ngFor="let Product of ResultProducts; let i = index">
                   <td style="width: 110px;" class="px-3 font-bolder">{{ i + 1 }}</td>
                
-                  <td style="width: 90px;"><img [src]="Product.Image" style="width: 90px ;" alt=""></td> 
+                  <td style="width: 90px;"><img [src]="Product.Image" style="width: 99px ;" alt=""></td> 
                   <td style="width: 180px;">{{ Product.nameProduact	 }}</td>
                   <td style="width: 110px;">{{ Product.price}}</td> 
                   <td style="width: 110px;">{{Product.Qty}}</td>
                   <td  style="width: 110px;">{{Product.dec}}</td>
-                  <td style="width: 199px;">
-                    <button class="trash btn btn-danger " (click)="DeleteProduct(Product.id)">حذف<i class="fa-solid fa-trash"></i></button>
+                  <td style="width: 120px;">
+                    <button class="trash btn btn-danger" (click)="DeleteProduct(Product.id)">حذف<i class="fa-solid fa-trash"></i></button>
                     
                     <button class="editt btn btn-warning" (click)="Edit(Product)">تعديل <i class="fa-regular fa-pen-to-square"></i></button>
                     
