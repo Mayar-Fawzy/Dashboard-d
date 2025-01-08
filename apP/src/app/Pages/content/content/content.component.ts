@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../core/Services/auth.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from "../../../core/Pipes/search.pipe";
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, SearchPipe],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss'
 })
@@ -75,24 +76,24 @@ goToPage(page: number): void {
     this.currentPage = page;
   }
 }
-search():void{
+// search():void{
 
-   this.loading=true;
+//    this.loading=true;
  
-    this._AuthServies.Search(this.searchInput,this.currentPage,this.numberr).subscribe((res)=>{
+//     this._AuthServies.Search(this.searchInput,this.currentPage,this.numberr).subscribe((res)=>{
     
      
-      this.resultUser=res.users;
+//       this.resultUser=res.users;
       
-      console.log(this.resultUser)
+//       console.log(this.resultUser)
   
-    },
-   error=>{
-    this.loading=false;
-    console.log(error);
-   }
-  )
+//     },
+//    error=>{
+//     this.loading=false;
+//     console.log(error);
+//    }
+//   )
     
- }
+//  }
 
 }

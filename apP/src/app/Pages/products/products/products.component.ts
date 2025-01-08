@@ -5,11 +5,12 @@ import { AuthService } from '../../../core/Services/auth.service';
 
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { SearchPipe } from "../../../core/Pipes/search.pipe";
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule, SearchPipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -19,6 +20,7 @@ export class ProductsComponent {
   private readonly _AuthService=inject(AuthService);
   private _router = inject(Router);
   loading:boolean=false;
+  searchInput!:string;
   ResultProducts:any=[];
  
   numberr=10;
@@ -103,4 +105,6 @@ export class ProductsComponent {
     this.ResultProducts=response.data})
   }
  }
+ 
+
 }

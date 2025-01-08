@@ -45,6 +45,9 @@ logout():void{
   EditProductById(id:string):Observable<any>{
     return this._HttpClient.get(`${environment.UrlProduct}/${id}`);
   }
+  updateProduct(id: string, product: any): Observable<any> {
+    return this._HttpClient.put(`${environment.UrlProduct}/${id}`, product);
+  }
   Search(searchinput:string,page:number=1, limit:number=10):Observable<any>{
     return this._HttpClient.get(`${environment.baseUrl}${environment.UserRout}?name=${searchinput}`)
   }

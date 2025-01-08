@@ -1,16 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../../core/Services/auth.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-product',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.scss'
 })
-export class EditProductComponent {
+export class EditedProductComponent {
      private readonly _AuthService=inject(AuthService)
      private readonly _ActivatedRoute=inject(ActivatedRoute)
      private readonly _Router=inject(Router)
@@ -38,4 +39,21 @@ export class EditProductComponent {
             });
           })
      }
+     updateProduct(): void {
+      if (this.EditedProduct.valid) {
+        this.isloading = true;
+        this._AuthService.updateProduct(this.productId, this.EditedProduct.value).subscribe(
+          (response) => {
+            console.log();
+            this.isloading = false;
+          
+            this._Router.navigate(['home/products']);
+          },
+          (error) => {
+            this.isloading = false;
+            
+          }
+        );
+      }
+    }
 }

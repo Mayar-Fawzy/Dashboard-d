@@ -1,11 +1,21 @@
 
 <div class="container-fluid OrdersContainer ">
+  <div class="d-flex justify-content-between">
     <h2 class="h3 p-4"> المنتجات</h2>
-    <!-- <div class="searchInput position-relative">
-        <i class="bi bi-search"></i>
-    
-        <input type="text" placeholder="بحث" />
-      </div> -->
+    <form>
+      <input
+        type="text"
+        [(ngModel)]="searchInput"
+        
+        name="searchInput"
+        id=""
+        placeholder="ابحث"
+        style="border-radius: 20px; border: 1px solid #b88e2f; padding: 10px; margin-top: 10px;"
+       
+      />
+    </form>
+  </div>
+   
     @if(loading==false){
       <div class=" text-center">
         <div class="loader"></div>
@@ -28,9 +38,10 @@
               </tr>
               
             </thead>
-            <tbody >
-              <tr *ngFor="let Product of ResultProducts; let i = index">
-                  <td style="width: 110px;" class="px-3 font-bolder">{{ i + 1 }}</td>
+            <tbody >  @for (Product of ResultProducts|search:searchInput: 'nameProduact'; track $index) {
+              <tr>
+              
+                  <td style="width: 70px;" class="px-3 font-bolder">{{ $index+1 }}</td>
                
                   <td style="width: 90px;"><img [src]="Product.Image" style="width: 99px ;" alt=""></td> 
                   <td style="width: 180px;">{{ Product.nameProduact	 }}</td>
@@ -45,8 +56,9 @@
                   </td>
                
                  
-  
-                </tr>
+               
+                </tr> 
+              }
             </tbody>
           </table>
           }   

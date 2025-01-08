@@ -55,7 +55,7 @@
         id=""
         placeholder="ابحث"
         style="border-radius: 20px; border: 1px solid #b88e2f; padding: 10px"
-        (keyup)="search()"
+       
       />
     </form>
   </div>
@@ -76,18 +76,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of resultUser; let i = index">
-          <td class="px-3 font-bolder">{{ i + 1 }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.createdAt | date : "yyyy-MM-dd" }}</td>
-
-          <td>
-            <!-- <button class="btn  btnDelete " (click)="onDelete(product.id)">حذف <i class="bi bi-trash3 me-1"></i>
-              </button>
-              <button class="btn btnEdit" (click)="onEdit(product)">تعديل <i class="bi bi-pencil-square"></i></button> -->
-          </td>
-        </tr>
+        @for (user of resultUser |search:searchInput: 'name'; track $index) {
+          <tr>
+            <td class="px-3 font-bolder">{{ $index+1 }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.createdAt | date : "yyyy-MM-dd" }}</td>
+  
+          </tr>
+        }
+      
       </tbody>
     </table>
     <div class="d-flex justify-content-between">

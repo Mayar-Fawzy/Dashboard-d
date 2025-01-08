@@ -11,7 +11,7 @@ import { AddproductsComponent } from './Pages/Addproduct/addproducts/addproducts
 import { MessageComponent } from './Pages/Messages/message/message.component';
 import path from 'node:path';
 import { Component } from '@angular/core';
-import { EditProductComponent } from './Pages/Edit-Product/edit-product/edit-product.component';
+import { EditedProductComponent } from './Pages/Edit-Product/edit-product/edit-product.component';
 
 export const routes: Routes = [
     {path:'' ,redirectTo:'login',pathMatch:'full'},
@@ -25,7 +25,7 @@ export const routes: Routes = [
         {path:'orders',component:OrdersComponent},
        
         {path:'products',component:ProductsComponent},
-        { path: 'products/edit/:id', component: EditProductComponent }
+        { path: 'products/edit/:id', component: EditedProductComponent }
         ,
         {path:'Addproducts',component:AddproductsComponent},
         {path:'Message', component:MessageComponent},
