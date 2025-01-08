@@ -12,6 +12,8 @@ import { MessageComponent } from './Pages/Messages/message/message.component';
 import path from 'node:path';
 import { Component } from '@angular/core';
 import { EditedProductComponent } from './Pages/Edit-Product/edit-product/edit-product.component';
+import { DepartmentComponent } from './Pages/Department/department/department.component';
+import { AddDepartmentComponent } from './Pages/AddDepartment/add-department/add-department.component';
 
 export const routes: Routes = [
     {path:'' ,redirectTo:'login',pathMatch:'full'},
@@ -28,6 +30,8 @@ export const routes: Routes = [
         { path: 'products/edit/:id', component: EditedProductComponent }
         ,
         {path:'Addproducts',component:AddproductsComponent},
+        {path:'Department' , component:DepartmentComponent},
+        {path:'AddDepartment', component:AddDepartmentComponent},
         {path:'Message', component:MessageComponent},
         {path:'slider',component:SliderComponent},
     

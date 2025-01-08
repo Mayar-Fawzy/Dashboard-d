@@ -10,10 +10,13 @@ import { AuthService } from '../../../core/Services/auth.service';
 })
 export class SliderComponent {
   isVisable:boolean=false;
+  isVisable1:boolean=false;
   ShowOrHide(){
    this.isVisable=!this.isVisable;
 
   }
-  
+  ShowOrHide1(){
+    this.isVisable1=!this.isVisable1;
+  }
  readonly _Auth= inject(AuthService);
 }

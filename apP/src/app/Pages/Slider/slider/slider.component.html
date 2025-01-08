@@ -33,6 +33,28 @@
       }
        
     </div>
+    <div class="">
+        <a  class=" motgat option nav-link" [routerLink]="['/home/Department']" routerLinkActive="active-link" (click)="ShowOrHide1()">
+            <i class="fa-brands fa-codepen"></i>
+            <h4>الاقسام</h4>
+        </a> 
+      @if (isVisable1==true) 
+      {
+        <div class="showOrhide">
+            <a  class="nav-link" [routerLink]="['/home/Department']" routerLinkActive="active-link">
+              
+                <h4>الاقسام</h4>
+            </a>
+             <a  class="nav-link" [routerLink]="['/home/AddDepartment']" routerLinkActive="active-link">
+             
+                    
+                    <h4>اضافه</h4>
+               
+            </a>
+           </div>
+      }
+       
+    </div>
     <div class="option">
         <a  class="nav-link " [routerLink]="['/home/Message']" routerLinkActive="active-link">
             <i class="fa-regular fa-comment"></i>
