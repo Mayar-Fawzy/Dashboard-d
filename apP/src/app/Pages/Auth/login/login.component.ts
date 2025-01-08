@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgModel, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 import { AuthService } from '../../../core/Services/auth.service';
@@ -11,7 +11,7 @@ import { error } from 'node:console';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
