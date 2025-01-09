@@ -14,6 +14,7 @@ import { AddDepartmentComponent } from './Pages/AddDepartment/add-department/add
 import { DepartmentComponent } from './Pages/Department/department/department.component';
 import { EditedProductComponent } from './Pages/Productss/edit-product/edit-product.component';
 import { ProductsComponent } from './Pages/Productss/products/products.component';
+import { EditDepartmentComponent } from './Pages/Departss/EditDepats/edit-department/edit-department.component';
 
 export const routes: Routes = [
     {path:'' ,redirectTo:'login',pathMatch:'full'},
@@ -31,6 +32,7 @@ export const routes: Routes = [
         ,
         {path:'Addproducts',component:AddproductsComponent},
         {path:'Department' , component:DepartmentComponent},
+        {path:'Department/editDepart/:id',component:EditDepartmentComponent},
         {path:'AddDepartment', component:AddDepartmentComponent},
         {path:'Message', component:MessageComponent},
         {path:'slider',component:SliderComponent},

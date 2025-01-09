@@ -35,6 +35,7 @@ logout():void{
     return this._HttpClient.get(`${environment.baseUrl}${environment.Orders}?limit=${limit}&page=${page}`)
   }
   
+  // Products
   getProducts(): Observable<any> {
     return this._HttpClient.get(environment.UrlProduct);
   }
@@ -53,5 +54,22 @@ logout():void{
   }
   Search(searchinput:string,page:number=1, limit:number=10):Observable<any>{
     return this._HttpClient.get(`${environment.baseUrl}${environment.UserRout}?name=${searchinput}`)
+  }
+  //Depart
+  GetDepatrs():Observable<any>{
+    return this._HttpClient.get(`${environment.UrlDepart}`);
+  }
+  EditDepartById(id:string):Observable<any>{
+    return this._HttpClient.get(`${environment.UrlDepart}/${id}`);
+  }
+  DeleteDepart(id:string):Observable<any>{
+    return this._HttpClient.delete(`${environment.UrlDepart}/${id}`);
+   
+  }
+  updatedepart(id:string , derpart:any):Observable<any>{
+     return this._HttpClient.put(`${environment.UrlDepart}/${id}`,derpart);
+  }
+  AddDepart(depart:any):Observable<any>{
+    return this._HttpClient.post(`${environment.UrlDepart}`,depart)
   }
 }

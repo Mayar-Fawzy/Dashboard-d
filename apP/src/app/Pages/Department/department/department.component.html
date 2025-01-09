@@ -1,1 +1,127 @@
-<p>department works!</p>
+<div class="container-fluid OrdersContainer">
+    <div class="d-flex justify-content-between">
+      <h2 class="h3 p-4">الاقسام</h2>
+      <form>
+        <input
+          type="text"
+       
+          name="searchInput"
+          id=""
+          placeholder="ابحث"
+          style="
+            border-radius: 20px;
+            border: 1px solid #b88e2f;
+            padding: 10px;
+            margin-top: 10px;
+          "
+        />
+      </form>
+    </div>
+  
+    @if(loading==false){
+    <div class="text-center">
+      <div class="loader"></div>
+    </div>
+    }
+    <div class="DataScroll">
+      <div class="">
+        @if(paginatedDeparts.length>0){
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th>الرقم</th>
+              <th>صوره القسم</th>
+              <th>اسم القسم</th>
+              <th> عدد</th>
+              <th>وصف</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (Depart of paginatedDeparts|search:searchInput: 'nameDepart';
+            track $index) {
+            <tr>
+              <td style="width: 70px" class="px-3 font-bolder">
+                {{ $index + 1 }}
+              </td>
+  
+              <td style="width: 90px">
+                <img [src]="Depart.image" style="width: 99px" alt="" />
+              </td>
+              <td style="width: 180px">{{ Depart.nameDepart }}</td>
+              <td style="width: 110px">{{ Depart.numberofdepart }}</td>
+              <td style="width: 110px">{{ Depart.title | slice:0:30 }}....</td>
+           
+              <td style="width: 120px">
+                <button
+                  class="trash btn btn-danger"
+                  (click)="DeleteDepart(Depart.id)"
+                >
+                  حذف<i class="fa-solid fa-trash"></i>
+                </button>
+  
+                <button class="editt btn btn-warning" (click)="Edit(Depart)">
+                  تعديل <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+        }
+      </div>
+    </div>
+  
+      
+       
+    <!--Pagination  -->
+    @if(paginatedDeparts.length > 0){ 
+      <div class="d-flex justify-content-between">
+      <div class="d-flex pagination-controls">
+        <button
+          [disabled]="currentPage < 2"
+          class="btn m-3"
+          (click)="navigateToPreviosPage()"
+        >
+          السابق
+        </button>
+  
+        <span class="current-page NumpageActive">{{ currentPage }}</span>
+        <span
+          class="current-page NumpageActive NumpageNotActive"
+          *ngIf="currentPage < numberOfPages()"
+          (click)="goToPage(currentPage + 1)"
+        >
+          {{ currentPage + 1 }}
+        </span>
+        <span
+          class="current-page NumpageActive NumpageNotActive"
+          *ngIf="currentPage < numberOfPages() - 1"
+          (click)="goToPage(currentPage + 2)"
+        >
+          {{ currentPage + 2 }}
+        </span>
+  
+        <button class="btn m-3" (click)="navigateToAnotherPage()">
+          التالي
+        </button>
+      </div>
+  
+      <div class="dropdown mt-2">
+        <label for="numberr"> العناصر في الصفحه</label>
+        <select
+          id="numberr"
+          class="changeselct"
+          (change)="numberChange($event)"
+        >
+          <option *ngFor="let numberr of numbers" [value]="numberr"
+          [selected]="numberr==pageSize"
+          >
+            {{ numberr }}
+          </option>
+        </select>
+      </div>
+    </div>}
+   
+  </div>
+  
