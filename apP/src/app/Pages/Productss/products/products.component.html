@@ -1,113 +1,171 @@
-
-<div class="container-fluid OrdersContainer ">
+<div class="container-fluid OrdersContainer">
   <div class="d-flex justify-content-between">
-    <h2 class="h3 p-4"> المنتجات</h2>
+    <h2 class="h3 p-4">المنتجات</h2>
     <form>
       <input
         type="text"
         [(ngModel)]="searchInput"
-        
         name="searchInput"
         id=""
         placeholder="ابحث"
-        style="border-radius: 20px; border: 1px solid #b88e2f; padding: 10px; margin-top: 10px;"
-       
+        style="
+          border-radius: 20px;
+          border: 1px solid #b88e2f;
+          padding: 10px;
+          margin-top: 10px;
+        "
       />
     </form>
   </div>
-   
-    @if(loading==false){
-      <div class=" text-center">
-        <div class="loader"></div>
-    </div>
-    }
-    <div class="DataScroll" >
-         <div class="">
-          @if(ResultProducts.length>0){
-            <table class="table text-center ">
-            <thead>
-              <tr>
-                  <th>الرقم</th>
-                  <th>  صوره المنتج</th>
-                  <th>اسم المنتج</th>
-                  <th> سعر المنتج</th>
-                  <th>الكميه </th>
-                  <th> الخصم</th>
-                  <th>الإجراءات </th>
-                
-              </tr>
-              
-            </thead>
-            <tbody >  @for (Product of ResultProducts|search:searchInput: 'nameProduact'; track $index) {
-              <tr>
-              
-                  <td style="width: 70px;" class="px-3 font-bolder">{{ $index+1 }}</td>
-               
-                  <td style="width: 90px;"><img [src]="Product.Image" style="width: 99px ;" alt=""></td> 
-                  <td style="width: 180px;">{{ Product.nameProduact	 }}</td>
-                  <td style="width: 110px;">{{ Product.price}}</td> 
-                  <td style="width: 110px;">{{Product.Qty}}</td>
-                  <td  style="width: 110px;">{{Product.dec}}</td>
-                  <td style="width: 120px;">
-                    <button class="trash btn btn-danger" (click)="DeleteProduct(Product.id)">حذف<i class="fa-solid fa-trash"></i></button>
-                    
-                    <button class="editt btn btn-warning" (click)="Edit(Product)">تعديل <i class="fa-regular fa-pen-to-square"></i></button>
-                    
-                  </td>
-               
-                 
-               
-                </tr> 
-              }
-            </tbody>
-          </table>
-          }   
-         </div>
-       
-    </div>
-    
-    <div class="d-flex justify-content-between">
-      <div class="d-flex  pagination-controls">
-        <button
-          [disabled]="count < 2"
-          class="btn  m-3"
-          (click)="navigateToPreviosPage()"
-        >
-          السابق
-        </button>
-          
-          <span class="current-page NumpageActive">{{ count }}</span>
-          @if(count > numberOfPages){ 
-             <span class="current-page NumpageActive NumpageNotActive"
-             (click)="goToPage(count + 1)">
-              {{ count + 1 }} 
-          </span>
 
+  @if(loading==false){
+  <div class="text-center">
+    <div class="loader"></div>
+  </div>
+  }
+  <div class="DataScroll">
+    <div class="">
+      @if(paginatedProducts.length>0){
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>الرقم</th>
+            <th>صوره المنتج</th>
+            <th>اسم المنتج</th>
+            <th>سعر المنتج</th>
+            <th>الكميه</th>
+            <th>الخصم</th>
+            <th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (Product of paginatedProducts|search:searchInput: 'nameProduact';
+          track $index) {
+          <tr>
+            <td style="width: 70px" class="px-3 font-bolder">
+              {{ $index + 1 }}
+            </td>
+
+            <td style="width: 90px">
+              <img [src]="Product.Image" style="width: 99px" alt="" />
+            </td>
+            <td style="width: 180px">{{ Product.nameProduact }}</td>
+            <td style="width: 110px">{{ Product.price }}</td>
+            <td style="width: 110px">{{ Product.Qty }}</td>
+            <td style="width: 110px">{{ Product.dec }}</td>
+            <td style="width: 120px">
+              <button
+                class="trash btn btn-danger"
+                (click)="DeleteProduct(Product.id)"
+              >
+                حذف<i class="fa-solid fa-trash"></i>
+              </button>
+
+              <button class="editt btn btn-warning" (click)="Edit(Product)">
+                تعديل <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+            </td>
+          </tr>
           }
-        
-          <span class="current-page NumpageActive NumpageNotActive"
-              *ngIf="count > numberOfPages - 1" (click)="goToPage(count + 2)">
-              {{ count + 2 }}
-          </span>
-    
-        <button class="btn m-3" (click)="navigateToAnotherPage()">
-          التالي
-        </button>
-      </div>
-
-      <div class="dropdown mt-2">
-        <label for="numberr"> العناصر في الصفحه</label>
-        <select
-          id="numberr"
-          class="changeselct"
-          (change)="numberChange($event)"
-        >
-          <option value="10">10</option>
-          <option *ngFor="let numberr of numbers" [value]="numberr">
-            {{ numberr }}
-          </option>
-        </select>
-      </div>
+        </tbody>
+      </table>
+      }
     </div>
   </div>
 
+  <!-- <div class="d-flex justify-content-between">
+    @if(paginatedProducts.length > 0){
+        <div class="d-flex pagination-controls">
+      <button
+        [disabled]="currentPage ===1"    
+            class="btn m-3"
+        (click)="navigateToPreviosPage()"
+      >
+        السابق
+      </button>
+
+      <span class="current-page NumpageActive">{{ currentPage }}</span>
+      @if(currentPage < numberOfPages()){
+      <span
+        class="current-page NumpageActive NumpageNotActive"
+        (click)="goToPage(currentPage + 1)"
+      >
+        {{ currentPage + 1 }}
+      </span>
+
+      }
+
+      <span
+        class="current-page NumpageActive NumpageNotActive"
+        *ngIf="currentPage <numberOfPages() - 1"
+        (click)="goToPage(currentPage + 2)"
+      >
+        {{ currentPage + 2 }}
+      </span>
+
+      <button class="btn m-3" (click)="navigateToAnotherPage()"  [disabled]="currentPage === numberOfPages()">التالي</button>
+    </div>
+
+    <div class="dropdown mt-2">
+      <label for="numberr"> العناصر في الصفحه</label>
+      <select id="numberr" class="changeselct" (change)="numberChange($event)">
+       
+        <option *ngFor="let numberr of numbers" [value]="numberr"
+        [selected]="numberr==pageSize">
+          {{ numberr }}
+        </option>
+      </select>
+    </div>
+    }
+  
+  </div> -->
+  <!--  -->
+  @if(paginatedProducts.length > 0){ 
+    <div class="d-flex justify-content-between">
+    <div class="d-flex pagination-controls">
+      <button
+        [disabled]="currentPage < 2"
+        class="btn m-3"
+        (click)="navigateToPreviosPage()"
+      >
+        السابق
+      </button>
+
+      <span class="current-page NumpageActive">{{ currentPage }}</span>
+      <span
+        class="current-page NumpageActive NumpageNotActive"
+        *ngIf="currentPage < numberOfPages()"
+        (click)="goToPage(currentPage + 1)"
+      >
+        {{ currentPage + 1 }}
+      </span>
+      <span
+        class="current-page NumpageActive NumpageNotActive"
+        *ngIf="currentPage < numberOfPages() - 1"
+        (click)="goToPage(currentPage + 2)"
+      >
+        {{ currentPage + 2 }}
+      </span>
+
+      <button class="btn m-3" (click)="navigateToAnotherPage()">
+        التالي
+      </button>
+    </div>
+
+    <div class="dropdown">
+      <label for="numberr"> العناصر في الصفحه</label>
+      <select
+        id="numberr"
+        class="changeselct"
+        (change)="numberChange($event)"
+      >
+        <option *ngFor="let numberr of numbers" [value]="numberr"
+        [selected]="numberr==pageSize"
+        >
+          {{ numberr }}
+        </option>
+      </select>
+    </div>
+  </div>}
+ 
+</div>

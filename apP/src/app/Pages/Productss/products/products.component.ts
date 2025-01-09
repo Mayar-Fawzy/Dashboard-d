@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject, inject, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/Services/auth.service';
-
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { SearchPipe } from "../../../core/Pipes/search.pipe";
+
 
 @Component({
   selector: 'app-products',
@@ -22,17 +22,21 @@ export class ProductsComponent {
   loading:boolean=false;
   searchInput!:string;
   ResultProducts:any=[];
+  paginatedProducts: any[] = []
+   numbers = [5,10, 25, 100];
+   products: any[] = [];
+    pageSize = 10;
+   currentPage = 1; 
+    length = 0;
  
-  numberr=10;
-   numbers = [5, 15, 20, 30, 40];
-   currentPage!: number;
-   count:number=1;
-   numberOfPages=0;
+   
   ngOnInit(): void {
    this.GetAllProducts();
    this.sortProductsByNewest();
    
+   
   }
+
     //^ Method to sort products by their creation date in descending order
     sortProductsByNewest(): void {
       this.ResultProducts.sort((a:any, b:any) => {
@@ -46,7 +50,9 @@ export class ProductsComponent {
       next: (res) => { 
          this.loading = true;
         this.ResultProducts = res;
+        this.length = this.ResultProducts.length;
         this.sortProductsByNewest();
+        this.UpdatePages();
       // Set noResults if no products are found
       },
       error: (err) => {
@@ -59,7 +65,7 @@ export class ProductsComponent {
   }
   DeleteProduct(id:string){
     
-
+  // SweetAlert2
      Swal.fire({
       title: "هل متاكد من  الحذف ؟",
       
@@ -87,33 +93,46 @@ export class ProductsComponent {
   Edit(product: any){
     this._router.navigate(['/home/products/edit', product.id])
   }
- numberChange(event:any):void{
-   this.numberr=+event.target.value;
-   this.currentPage=1;
-   this.GetAllProducts()
- }
+ ///////////////////////////
  
+   UpdatePages():void{
+      const Started=(this.currentPage - 1) * this.pageSize;
+      const End= Started+ this.pageSize;
+      this.paginatedProducts=this.ResultProducts.slice(Started,End)
+   }
+   numberOfPages():number{
+    return Math.ceil(this.length/this.pageSize)
+  }
  
-  
  navigateToAnotherPage() {
-  this.count++;
-  this. _AuthService.getProducts().subscribe((response) =>{
-    this.ResultProducts=response.data})
+  if(this.currentPage<this.numberOfPages()){
+    
+  this.currentPage++;
+  this.UpdatePages();
  
- }
- 
- navigateToPreviosPage(){
-  this.count--;
-  this. _AuthService.getProducts().subscribe((response) =>{
-    this.ResultProducts=response.data})
- }
- goToPage(page: number): void {
-  if (this.count >= 1 && this.count<= this.numberOfPages) {
-    this.currentPage = page;
-    this. _AuthService.getProducts().subscribe((response) =>{
-    this.ResultProducts=response.data})
   }
  }
  
+ navigateToPreviosPage(){
+  if(this.currentPage>1){
+    this.currentPage--;
+    this.UpdatePages();
+  }
+ 
+ }
+
+ goToPage(page: number): void {
+  if (page >= 1 && page<= this.numberOfPages()) {
+    this.currentPage = page;
+    this.UpdatePages();
+  }
+ }
+ numberChange(event:Event):void{
+  const selectElement = event.target as HTMLSelectElement;
+  this.pageSize = +selectElement.value;
+  this.currentPage = 1; 
+  this.UpdatePages();
+}
+
 
 }
