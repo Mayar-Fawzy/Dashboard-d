@@ -73,53 +73,9 @@
     </div>
   </div>
 
-  <!-- <div class="d-flex justify-content-between">
-    @if(paginatedProducts.length > 0){
-        <div class="d-flex pagination-controls">
-      <button
-        [disabled]="currentPage ===1"    
-            class="btn m-3"
-        (click)="navigateToPreviosPage()"
-      >
-        السابق
-      </button>
-
-      <span class="current-page NumpageActive">{{ currentPage }}</span>
-      @if(currentPage < numberOfPages()){
-      <span
-        class="current-page NumpageActive NumpageNotActive"
-        (click)="goToPage(currentPage + 1)"
-      >
-        {{ currentPage + 1 }}
-      </span>
-
-      }
-
-      <span
-        class="current-page NumpageActive NumpageNotActive"
-        *ngIf="currentPage <numberOfPages() - 1"
-        (click)="goToPage(currentPage + 2)"
-      >
-        {{ currentPage + 2 }}
-      </span>
-
-      <button class="btn m-3" (click)="navigateToAnotherPage()"  [disabled]="currentPage === numberOfPages()">التالي</button>
-    </div>
-
-    <div class="dropdown mt-2">
-      <label for="numberr"> العناصر في الصفحه</label>
-      <select id="numberr" class="changeselct" (change)="numberChange($event)">
-       
-        <option *ngFor="let numberr of numbers" [value]="numberr"
-        [selected]="numberr==pageSize">
-          {{ numberr }}
-        </option>
-      </select>
-    </div>
-    }
-  
-  </div> -->
-  <!--  -->
+    
+     
+  <!--Pagination  -->
   @if(paginatedProducts.length > 0){ 
     <div class="d-flex justify-content-between">
     <div class="d-flex pagination-controls">

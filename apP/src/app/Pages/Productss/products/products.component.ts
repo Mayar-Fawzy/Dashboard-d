@@ -98,11 +98,10 @@ export class ProductsComponent {
    UpdatePages():void{
       const Started=(this.currentPage - 1) * this.pageSize;
       const End= Started+ this.pageSize;
-      this.paginatedProducts=this.ResultProducts.slice(Started,End)
+      this.paginatedProducts=this.ResultProducts.slice(Started,End);
    }
-   numberOfPages():number{
-    return Math.ceil(this.length/this.pageSize)
-  }
+   //To Handle API That Without Limit & Page
+   numberOfPages():number{ return Math.ceil(this.length/this.pageSize) }
  
  navigateToAnotherPage() {
   if(this.currentPage<this.numberOfPages()){
