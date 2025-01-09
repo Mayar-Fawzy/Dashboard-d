@@ -1,1 +1,66 @@
-<p>add-department works!</p>
+<div class="container-fluid ">
+    <h2 class="p-4"><strong>اضافه القسم</strong></h2>
+    <div class="Data">
+     <form (ngSubmit)="AddDepart(AddedDepart)" [formGroup]="AddedDepart">
+        
+         <div class="row g-4 DataFrom">
+             <div class="form-group col-md-6">
+                 <label for="name">اسم القسم</label>
+                 <input type="text" class="form-control mt-3 inputProduct" formControlName="nameDepart" id="name"
+                     placeholder="ادخل اسم القسم"
+                     [ngClass]="{'is-invalid': AddedDepart.get('nameDepart')?.invalid && AddedDepart.get('nameDepart')?.touched}">
+                 <div *ngIf="AddedDepart.get('nameDepart')?.invalid && AddedDepart.get('nameDepart')?.touched" class="invalid-feedback">
+                     اسم القسم مطلوب ويجب أن يكون بين 3 و 40 حرفًا.
+                 </div>
+             </div>
+ 
+             <div class="form-group col-md-6">
+                 <label for="image"> صوره القسم</label>
+                 <input type="url" class="form-control mt-3 inputProduct" formControlName="image" id="image"
+                     placeholder="ادخل لينك صوره القسم"
+                     [ngClass]="{'is-invalid': AddedDepart.get('image')?.invalid && AddedDepart.get('image')?.touched}">
+                 <div *ngIf="AddedDepart.get('image')?.invalid && AddedDepart.get('image')?.touched" class="invalid-feedback">
+                     رابط الصورة مطلوب.
+                 </div>
+             </div>
+ 
+             <div class="form-group col-md-6">
+                 <label for="numberofdepart">عدد الاقسام </label>
+                 <input type="number" class="form-control mt-3 inputProduct" formControlName="numberofdepart" id="numberofdepart"
+                     placeholder="ادخل السعر القسم"
+                     [ngClass]="{'is-invalid': AddedDepart.get('numberofdepart')?.invalid && AddedDepart.get('numberofdepart')?.touched}">
+                 <div *ngIf="AddedDepart.get('numberofdepart')?.invalid && AddedDepart.get('numberofdepart')?.touched" class="invalid-feedback">
+                     القسم مطلوب.
+                 </div>
+             </div>
+ 
+             <div class="form-group col-md-6">
+                 <label for="title">الوصف </label>
+                 <input type="number" class="form-control mt-3 inputProduct" formControlName="title" id="title"
+                     placeholder="ادخل الوصف القسم"
+                     [ngClass]="{'is-invalid': AddedDepart.get('title')?.invalid && AddedDepart.get('title')?.touched}">
+                 <div *ngIf="AddedDepart.get('title')?.invalid && AddedDepart.get('title')?.touched" class="invalid-feedback">
+                     الوصف مطلوبة.
+                 </div>
+             </div>
+             <div class="form-group col-md-6">
+                <label for="RouteCategory">الوصف الطويل </label>
+                <input type="number" class="form-control mt-3 inputProduct" formControlName="RouteCategory" id="RouteCategory"
+                    placeholder="ادخل الوصف القسم"
+                    [ngClass]="{'is-invalid': AddedDepart.get('RouteCategory')?.invalid && AddedDepart.get('RouteCategory')?.touched}">
+                <div *ngIf="AddedDepart.get('RouteCategory')?.invalid && AddedDepart.get('RouteCategory')?.touched" class="invalid-feedback">
+                    الوصف مطلوبة.
+                </div>
+            </div>
+             
+         </div>
+ 
+         <div class="add">
+             <button [disabled]="isloading || AddedDepart.invalid" class="btn btnEdit">
+                 <span *ngIf="!isloading">تحديث <i class="bi me-3 bi-pencil-square"></i></span>
+                 <span *ngIf="isloading">جارٍ تحديث القسم... </span>
+             </button>
+         </div>
+     </form>
+ </div>
+ </div>
