@@ -16,7 +16,7 @@ export class AddproductsComponent {
   private readonly _Router =inject(Router);
   isloading :boolean= false;
    AddedProduct:FormGroup = new FormGroup({ 
-    nameProduct: new FormControl('', [Validators.required , Validators.minLength(3),Validators.maxLength(30)]),
+    nameProduact: new FormControl('', [Validators.required , Validators.minLength(3),Validators.maxLength(30)]),
     Image:new FormControl('',[Validators.required]),
     price: new FormControl('', [Validators.required]),
     Qty:new FormGroup('',[Validators.required]),
@@ -28,8 +28,16 @@ export class AddproductsComponent {
     Rating:new FormControl('',[Validators.required]),
     RouteCategory:new FormControl('',[Validators.required])
    });
-  //   addProduct: FormGroup  =new FormGroup({
-  //    nameProduact:new FormControl(null,[Validators.required , Validators.minLength(3),Validators.maxLength(30)]),
-  //    Image:new FormControl(null,[Validators.required]),
-  //  );
+   AddProduct(AddedProduct:FormGroup){
+    if(AddedProduct.valid){
+      console.log(AddedProduct.value);
+      this.isloading=true
+      this._AuthService.AddProducts(AddedProduct.value).subscribe((res)=>{
+       
+        this._Router.navigate(['/home/products']);
+      });
+    }
+ 
+   }
+  
 }
