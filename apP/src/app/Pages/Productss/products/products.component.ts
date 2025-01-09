@@ -30,7 +30,15 @@ export class ProductsComponent {
    numberOfPages=0;
   ngOnInit(): void {
    this.GetAllProducts();
+   this.sortProductsByNewest();
+   
   }
+    //^ Method to sort products by their creation date in descending order
+    sortProductsByNewest(): void {
+      this.ResultProducts.sort((a:any, b:any) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
+    }
   GetAllProducts(){
     this.loading = false;
     
@@ -38,6 +46,7 @@ export class ProductsComponent {
       next: (res) => { 
          this.loading = true;
         this.ResultProducts = res;
+        this.sortProductsByNewest();
       // Set noResults if no products are found
       },
       error: (err) => {

@@ -19,7 +19,7 @@ export class AddproductsComponent {
     nameProduact: new FormControl('', [Validators.required , Validators.minLength(3),Validators.maxLength(30)]),
     Image:new FormControl('',[Validators.required]),
     price: new FormControl('', [Validators.required]),
-    Qty:new FormGroup('',[Validators.required]),
+    Qty:new FormControl('',[Validators.required]),
     dec:new FormControl('',[Validators.required]),
     subTitle:new FormControl('',[Validators.required]),
     Title:new FormControl('',[Validators.required]),
