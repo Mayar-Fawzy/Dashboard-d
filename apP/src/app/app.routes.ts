@@ -6,14 +6,14 @@ import { authGuard } from './core/Guards/auth.guard';
 import { SliderComponent } from './Pages/Slider/slider/slider.component';
 import { ContentComponent } from './Pages/content/content/content.component';
 import { OrdersComponent } from './Pages/orders/orders/orders.component';
-import { ProductsComponent } from './Pages/products/products/products.component';
 import { AddproductsComponent } from './Pages/Addproduct/addproducts/addproducts.component';
 import { MessageComponent } from './Pages/Messages/message/message.component';
 import path from 'node:path';
 import { Component } from '@angular/core';
-import { EditedProductComponent } from './Pages/Edit-Product/edit-product/edit-product.component';
-import { DepartmentComponent } from './Pages/Department/department/department.component';
 import { AddDepartmentComponent } from './Pages/AddDepartment/add-department/add-department.component';
+import { DepartmentComponent } from './Pages/Department/department/department.component';
+import { EditedProductComponent } from './Pages/Productss/edit-product/edit-product.component';
+import { ProductsComponent } from './Pages/Productss/products/products.component';
 
 export const routes: Routes = [
     {path:'' ,redirectTo:'login',pathMatch:'full'},
