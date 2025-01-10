@@ -51,8 +51,9 @@
               <td style="width: 110px">{{Message.createdAt | date: 'dd/MM/yyyy' }}</td>
               <td style="width: 120px">
                 
-                <button class="editt btn btn-warning">
-                  تعديل <i class="fa-regular fa-pen-to-square"></i>
+                <button class="Showw btn btn-success" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#messageModal' + $index">
+                    اظهار <i class="fa-regular fa-pen-to-square"></i>
                 </button>
                 <button
                   class="trash btn btn-danger"
@@ -60,6 +61,25 @@
                 >
                   حذف<i class="fa-solid fa-trash"></i>
                 </button>
+                <div class="modal my-5 fade" [id]="'messageModal' + $index" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header justify-content-between">
+                            <h5 class="modal-title" id="exampleModalLabel">الرسائل</h5>
+                            <button type="button" class="btn-close m-0" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ Message.message }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger"
+                                data-bs-dismiss="modal">إخفاء</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
               </td>
             </tr>
             }
