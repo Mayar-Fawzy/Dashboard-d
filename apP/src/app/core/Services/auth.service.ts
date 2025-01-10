@@ -72,4 +72,13 @@ logout():void{
   AddDepart(depart:any):Observable<any>{
     return this._HttpClient.post(`${environment.UrlDepart}`,depart)
   }
+  //Message
+  GetMessage():Observable<any>
+{
+  return this._HttpClient.get(`${environment.messageUrl}`)
+}
+DeleteMessage(id:string):Observable<any>{
+   return this._HttpClient.delete(`${environment.messageUrl}/${id}`)
+}
+
 }

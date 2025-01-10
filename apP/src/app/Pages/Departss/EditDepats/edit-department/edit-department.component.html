@@ -36,7 +36,7 @@
  
              <div class="form-group col-md-6">
                  <label for="title">الوصف </label>
-                 <input type="number" class="form-control mt-3 inputProduct" formControlName="title" id="title"
+                 <input type="text" class="form-control mt-3 inputProduct" formControlName="title" id="title"
                      placeholder="ادخل الوصف القسم"
                      [ngClass]="{'is-invalid': Editeddepart.get('title')?.invalid && Editeddepart.get('title')?.touched}">
                  <div *ngIf="Editeddepart.get('title')?.invalid && Editeddepart.get('title')?.touched" class="invalid-feedback">

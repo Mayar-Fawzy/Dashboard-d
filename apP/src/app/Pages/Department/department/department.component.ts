@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SearchPipe } from '../../../core/Pipes/search.pipe';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../../core/Services/auth.service';
+import { SearchPipe } from '../../../core/Pipes/search.pipe';
 
 @Component({
   selector: 'app-department',
