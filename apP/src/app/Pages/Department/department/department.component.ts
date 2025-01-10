@@ -17,7 +17,7 @@ export class DepartmentComponent {
   private readonly _AuthService=inject(AuthService);
   private _router = inject(Router);
   loading:boolean=false;
-  searchInput!:string;
+  searchInput:string='';
   ResultDeparts:any=[];
   paginatedDeparts: any[] = []
    numbers = [5,10, 25, 100];

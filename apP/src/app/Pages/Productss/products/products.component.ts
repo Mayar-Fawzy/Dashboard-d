@@ -20,7 +20,7 @@ export class ProductsComponent {
   private readonly _AuthService=inject(AuthService);
   private _router = inject(Router);
   loading:boolean=false;
-  searchInput!:string;
+  searchInput:string='';
   ResultProducts:any=[];
   paginatedProducts: any[] = []
    numbers = [5,10, 25, 100];

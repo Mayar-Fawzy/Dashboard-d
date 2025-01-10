@@ -17,7 +17,7 @@ export class MessageComponent {
    PagenationMessages: any[] = []
    numbers = [5,10, 25, 100];
    Departs: any[] = [];
-   searchInput!:string;
+   searchInput:string='';
     pageSize = 10;
    currentPage = 1; 
     length = 0;
